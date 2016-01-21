@@ -26,6 +26,7 @@ public class PictureTester
     caterpillar.explore();
   }
   
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -51,6 +52,61 @@ public class PictureTester
     swan.explore();
   }
   
+  
+   public static void testMirrorVerticalRightToLeft()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVerticalRightToLeft();
+    caterpillar.explore();
+  }
+  
+  
+   public static void testMirrorTopToBot()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorTopToBot();
+    caterpillar.explore();
+  }
+  
+  public static void testMirrorArms()
+  {
+    Picture snowman = new Picture("snowman.jpg");
+    snowman.explore();
+    snowman.mirrorArms();
+    snowman.explore();
+  }
+  public static void testKeepOnlyBlue()
+  {
+    Picture temple = new Picture("temple.jpg");
+    temple.explore();
+    temple.keepOnlyBlue();
+    temple.explore();
+  }
+  public static void testNegate()
+  {
+    Picture image = new Picture("caterpillar.jpg");
+    image.explore();
+    image.negate();
+    image.explore();
+  }
+  public static void Grayscale()
+  {
+    Picture image = new Picture("caterpillar.jpg");
+    image.explore();
+    image.grayscale();
+    image.explore();
+  }
+  
+  public static void testCropAndCopy()
+  {
+    Picture image = new Picture("caterpillar.jpg");
+    Picture image1 = new Picture("temple.jpg");
+    image.explore();
+    image.cropAndCopy(image1,100,200,100,200,50,50);
+    image.explore();
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
