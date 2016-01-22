@@ -251,7 +251,28 @@ public class Picture extends SimplePicture
 
  }
   
- 
+ public void mirrorDiagonal()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; col < pixels[0].length; col++)
+      {
+        if (col < pixels.length)
+        {
+            leftPixel = pixels[row][col];
+            rightPixel = pixels[col][row];
+            leftPixel.setColor(rightPixel.getColor());
+        
+        }
+        
+      }
+    } 
+  }
+
    public void mirrorTopToBot()
 
   {
@@ -361,11 +382,11 @@ public class Picture extends SimplePicture
     beach.mirrorVerticalRightToLeft();
   }
   
-  public void keepOnlyBlue()
+  public Picture keepOnlyBlue(Picture picture)
 
  {
 
-     Pixel[][] pixels = this.getPixels2D();
+     Pixel[][] pixels = picture.getPixels2D();
 
      for (Pixel[] rowArray : pixels)
 
@@ -380,14 +401,14 @@ public class Picture extends SimplePicture
             }
 
         }
-
+        return picture;
  }
   
-  public void negate()
+  public Picture negate(Picture picture)
 
  {
 
-     Pixel[][] pixels = this.getPixels2D();
+     Pixel[][] pixels = picture.getPixels2D();
 
      for (Pixel[] rowArray : pixels)
 
@@ -402,7 +423,7 @@ public class Picture extends SimplePicture
             }
 
         }
-
+     return picture;
  }
  
   public void grayscale()

@@ -19,6 +19,7 @@ public class Collage
     /**
      * Default constructor for objects of class Collage
      */
+    
     public static void main(String args[])
     {
         Picture base = new Picture(1720,2738);
@@ -27,24 +28,40 @@ public class Collage
         Picture pict2 = new Picture("shark.jpg");
         Picture pict3 = new Picture("shark.jpg");
         //860,1369
-        //for(int i =1; i<5;i++)
-        //{
+        //pict.mirrorVerticalRightToLeft();
+        for(int i =1; i<5;i++)
+        {
+            //pict.scaleByHalf(pict);
+            
+            //pict = pict.negate(pict);
+            base.cropAndCopy(pict,0,860,0,1369,0,1369);
             pict.scaleByHalf(pict);
-            pict.mirrorVerticalRightToLeft();
-            base.cropAndCopy(pict,0,860,0,1369,0,0);
+        }  
             
-            
-            pict1 = pict1.scaleByHalf(pict1);
-            pict1 = pict1.scaleByHalf(pict1);
-            pict1 = pict1.scaleByHalf(pict1);
             pict1.mirrorTopToBot();
-            base.cropAndCopy(pict1,0,860,0,1369,860,1369);
+            pict1.mirrorVerticalRightToLeft();
+            base.cropAndCopy(base.negate(pict1),0,860,0,1369,860,1369);
+            
+            //for( int i = 0; i<4;i++)
+            //{
+            //pict2.mirrorDiagonal();
+            //pict2.mirrorTopToBot();
+            pict2.mirrorVerticalRightToLeft(); 
+        //}
+            
+            base.cropAndCopy(base.keepOnlyBlue(pict2),0,860,0,1369,0,0);
             //if(i
         //}
         //base.cropAndCopy(pict,0,860,0,1369,0,0);
         
+        base.cropAndCopy(pict3,0,860,0,1369,860,0);
+        
+        
         //510,575
         base.explore();
+        
+        base.write("MyCollage.jpg");
+        
     }
 
     
